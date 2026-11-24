@@ -50,8 +50,8 @@ body {
   font: 16px/1.65 var(--sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  opacity: 0;
-  transform: translateY(8px);
+  opacity: 1;
+  transform: none;
   transition: background-color 0.22s ease, color 0.22s ease, opacity 0.26s cubic-bezier(0.22, 1, 0.36, 1), transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
 }
 body.page-ready { opacity: 1; transform: none; }

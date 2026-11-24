@@ -3,6 +3,10 @@
   requestAnimationFrame(function () {
     document.body.classList.add('page-ready');
   });
+  window.addEventListener('pageshow', function () {
+    document.body.classList.remove('page-leave');
+    document.body.classList.add('page-ready');
+  });
 
   // Smooth page-leave transition on internal navigation (skip same-page #hash links)
   document.addEventListener('click', function (e) {
