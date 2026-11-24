@@ -250,8 +250,9 @@
     });
   }
 
-  // Case Study Modal (replaces plain lightbox with rich breakdown)
+  // Case Study Modal + Fullscreen Studio Loupe 2.5x & Lighting/Palette Viewer (ONLY for 3D cases)
   var modal = document.getElementById('case-modal');
+  var fsOverlay = document.getElementById('assembly-fullscreen');
   if (modal) {
     var mImg = document.getElementById('cm-img');
     var mTag = document.getElementById('cm-tag');
@@ -259,7 +260,11 @@
     var mDesc = document.getElementById('cm-desc');
     var mMeta = document.getElementById('cm-meta');
     var mBtn = document.getElementById('cm-cta');
+    var mOpen3d = document.getElementById('cm-open-3d');
     var mClose = modal.querySelector('.case-modal-close');
+    var currentAssemblyType = '';
+    var currentAssemblyTitle = '';
+    var currentAssemblyImg = '';
 
     document.querySelectorAll('.case-card').forEach(function (card) {
       card.style.cursor = 'pointer';
@@ -269,11 +274,18 @@
         var title = card.querySelector('h3');
         var desc = card.querySelector('.case-body p');
         var meta = card.querySelector('.case-meta');
+        currentAssemblyType = card.getAttribute('data-3d-assembly') || '';
+        currentAssemblyTitle = title ? title.textContent : 'Студийный просмотр';
+        currentAssemblyImg = img ? img.src : '';
+
         if (mImg && img) { mImg.src = img.src; mImg.alt = img.alt; }
         if (mTag && tag) mTag.textContent = tag.textContent;
         if (mTitle && title) mTitle.textContent = title.textContent;
         if (mDesc && desc) mDesc.textContent = desc.textContent;
         if (mMeta && meta) mMeta.textContent = meta.textContent;
+        if (mOpen3d) {
+          mOpen3d.style.display = currentAssemblyType ? 'inline-flex' : 'none';
+        }
         modal.classList.add('open');
       });
     });
@@ -281,7 +293,15 @@
     function closeModal() { modal.classList.remove('open'); }
     if (mClose) mClose.addEventListener('click', closeModal);
     modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        if (fsOverlay && fsOverlay.classList.contains('open')) {
+          closeFullscreen3D();
+        } else {
+          closeModal();
+        }
+      }
+    });
     if (mBtn) {
       mBtn.addEventListener('click', function () {
         closeModal();
@@ -294,6 +314,103 @@
         }
       });
     }
+
+    // Studio Loupe 2.5x + Mood/Lighting Switcher
+    var fsTitleEl = document.getElementById('afs-title');
+    var fsCloseBtn = document.getElementById('afs-close');
+    var studioViewer = document.getElementById('studio-viewer');
+    var studioImg = document.getElementById('studio-img');
+    var studioLoupe = document.getElementById('studio-loupe');
+    var loupeToggle = document.getElementById('afs-loupe-toggle');
+    var zoomRange = document.getElementById('afs-zoom-range');
+    var zoomVal = document.getElementById('afs-zoom-val');
+    var moodBtns = fsOverlay ? fsOverlay.querySelectorAll('.afs-step[data-mood]') : [];
+    var loupeEnabled = true;
+    var loupeZoom = 2.4;
+
+    function setZoom(z) {
+      loupeZoom = Math.max(1.5, Math.min(4.0, Math.round(z * 10) / 10));
+      if (zoomRange) zoomRange.value = loupeZoom;
+      if (zoomVal) zoomVal.textContent = loupeZoom.toFixed(1) + '×';
+    }
+    if (zoomRange) {
+      zoomRange.addEventListener('input', function () {
+        setZoom(parseFloat(zoomRange.value));
+      });
+    }
+
+    function applyMood(mood) {
+      if (studioViewer) studioViewer.setAttribute('data-mood', mood);
+      if (studioLoupe && studioImg) {
+        var filterMap = {
+          original: 'none',
+          warm: 'sepia(0.22) saturate(1.18) brightness(0.96) contrast(1.06)',
+          scandi: 'saturate(0.82) brightness(1.08) contrast(0.96) hue-rotate(-6deg)',
+          loft: 'contrast(1.16) brightness(0.84) saturate(0.88)'
+        };
+        studioLoupe.style.filter = filterMap[mood] || 'none';
+      }
+      moodBtns.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-mood') === mood);
+      });
+    }
+
+    if (studioViewer && studioLoupe) {
+      studioViewer.addEventListener('mousemove', function (e) {
+        if (!loupeEnabled || !currentAssemblyImg) {
+          studioLoupe.classList.remove('active');
+          return;
+        }
+        var r = studioViewer.getBoundingClientRect();
+        var x = e.clientX - r.left;
+        var y = e.clientY - r.top;
+        var zoom = loupeZoom;
+        studioLoupe.classList.add('active');
+        studioLoupe.style.left = x + 'px';
+        studioLoupe.style.top = y + 'px';
+        studioLoupe.style.backgroundImage = 'url("' + currentAssemblyImg + '")';
+        studioLoupe.style.backgroundSize = (r.width * zoom) + 'px ' + (r.height * zoom) + 'px';
+        studioLoupe.style.backgroundPosition = (-x * zoom + 95) + 'px ' + (-y * zoom + 95) + 'px';
+      });
+      studioViewer.addEventListener('wheel', function (e) {
+        if (!loupeEnabled) return;
+        e.preventDefault();
+        setZoom(loupeZoom + (e.deltaY < 0 ? 0.3 : -0.3));
+      }, { passive: false });
+      studioViewer.addEventListener('mouseleave', function () {
+        studioLoupe.classList.remove('active');
+      });
+    }
+
+    if (loupeToggle) {
+      loupeToggle.addEventListener('click', function () {
+        loupeEnabled = !loupeEnabled;
+        loupeToggle.classList.toggle('active', loupeEnabled);
+        loupeToggle.textContent = loupeEnabled ? 'Лупа: ВКЛ' : 'Лупа: ВЫКЛ';
+        if (!loupeEnabled && studioLoupe) studioLoupe.classList.remove('active');
+      });
+    }
+
+    function openFullscreen3D() {
+      if (!fsOverlay || !currentAssemblyImg) return;
+      if (fsTitleEl) fsTitleEl.textContent = currentAssemblyTitle;
+      if (studioImg) studioImg.src = currentAssemblyImg;
+      applyMood('original');
+      fsOverlay.classList.add('open');
+    }
+
+    function closeFullscreen3D() {
+      if (studioLoupe) studioLoupe.classList.remove('active');
+      if (fsOverlay) fsOverlay.classList.remove('open');
+    }
+
+    if (mOpen3d) mOpen3d.addEventListener('click', openFullscreen3D);
+    if (fsCloseBtn) fsCloseBtn.addEventListener('click', closeFullscreen3D);
+    moodBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyMood(btn.getAttribute('data-mood'));
+      });
+    });
   }
 
   // Form quick service tags
@@ -314,10 +431,9 @@
   var calcService = '3d';
   var calcScale = 'pilot';
   var prices = {
-    '3d': { pilot: ['от 6 000 ₽', '2–3 дня · 1 модель / 3 ракурса'], standard: ['от 25 000 ₽', '5–7 дней · каталог до 8 моделей'], pro: ['от 65 000 ₽', '10–14 дней · серия + интерактивы'] },
-    'web': { pilot: ['от 15 000 ₽', '2–3 дня · прототип и 1-й экран'], standard: ['от 45 000 ₽', '5–7 дней · продающий лендинг под ключ'], pro: ['от 95 000 ₽', '10–14 дней · многостраничник + интеграции'] },
-    'auto': { pilot: ['от 15 000 ₽', '2–3 дня · бот/форма → Telegram'], standard: ['от 40 000 ₽', '5–7 дней · сайт + CRM + автоответы'], pro: ['от 120 000 ₽', '14–21 день · кастомный SaaS / парсер'] },
-    'yt': { pilot: ['от 6 000 ₽', '1–2 дня · 3 кликабельных превью'], standard: ['от 18 000 ₽', 'пакет 10 превью под контент-план'], pro: ['от 45 000 ₽', 'ежемесячное сопровождение канала'] }
+    '3d': { pilot: ['от 6 000 ₽', 'от 2 дней · 1 модель / 3 ракурса'], standard: ['от 25 000 ₽', 'от 5 дней · каталог моделей под ключ'], pro: ['от 65 000 ₽', 'от 10 дней · серия + варианты цветов и сцен'] },
+    'web': { pilot: ['от 15 000 ₽', 'от 2 дней · концепт и прототип 1-го экрана'], standard: ['от 45 000 ₽', 'от 5 дней · продающий сайт / лендинг под ключ'], pro: ['от 95 000 ₽', 'от 10 дней · многостраничник + CRM и сервисы'] },
+    'custom': { pilot: ['от 15 000 ₽', 'от 2 дней · бот, парсер или превью'], standard: ['от 40 000 ₽', 'от 5 дней · автоматизация заявок (CRM / TG)'], pro: ['по задаче', 'от 14 дней · индивидуальный сервис или комплекс'] }
   };
 
   function updateCalc() {
@@ -412,7 +528,7 @@
         if (j.success !== true && j.success !== 'true') throw new Error(j.message || 'failed');
         form.reset();
         status.className = 'status ok';
-        status.textContent = 'Спасибо! Заявка отправлена — отвечу в течение двух часов.';
+        status.textContent = 'Спасибо! Заявка отправлена — ответим в течение 24 часов.';
       } catch (e) {
         status.className = 'status err';
         status.innerHTML = 'Не удалось отправить. Напишите в <a href="https://t.me/denis_polyedge" target="_blank" rel="noopener">Telegram</a> или на <a href="mailto:contact.polyedge@gmail.com">почту</a>.';

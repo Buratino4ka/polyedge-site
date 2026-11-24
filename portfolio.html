@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Портфолио — PolyEdge-Studio</title>
 <meta name="description" content="Кейсы PolyEdge-Studio: 3D-визуализация мебели, сантехники и интерьеров, сайты, веб-сервисы и автоматизация.">
-<link rel="stylesheet" href="assets/style.css?v=19">
+<link rel="stylesheet" href="assets/style.css?v=26">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
@@ -42,7 +42,7 @@
     <div class="wrap">
       <span class="eyebrow">Портфолио студии</span>
       <h1 style="font-size:clamp(32px,4.5vw,48px);margin-bottom:14px">Кейсы и выполненные проекты</h1>
-      <p class="sub" style="max-width:660px">Переключайте направления, чтобы посмотреть релевантные работы. Клик по любому изображению открывает полный размер.</p>
+      <p class="sub" style="max-width:680px">Переключайте направления, чтобы посмотреть релевантные работы. В 3D-кейсах доступна интерактивная поэтапная сборка модели.</p>
     </div>
   </section>
 
@@ -51,137 +51,173 @@
       <div class="tabs" role="tablist">
         <button class="tab active" type="button" data-filter="all">Все проекты</button>
         <button class="tab" type="button" data-filter="3d">3D-мебель и интерьеры</button>
-        <button class="tab" type="button" data-filter="web">Сайты и автоматизация</button>
-        <button class="tab" type="button" data-filter="concept">Концепт и персонажи</button>
+        <button class="tab" type="button" data-filter="web">Сайты и лендинги</button>
+        <button class="tab" type="button" data-filter="custom">Индивидуальные проекты</button>
       </div>
 
       <div class="cases-grid">
-        <article class="case-card reveal" data-cat="3d">
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="breakdown">
+          <div class="case-thumb"><img src="assets/kitchen_island_3d.jpg" alt="3D-визуализация кухни с мраморным островом" loading="lazy"></div>
+          <div class="case-body">
+            <span class="case-tag">3D-интерьер</span>
+            <h3>Кухня с мраморным островом</h3>
+            <p>Фотореалистичная сцена с проработкой натурального камня, тёмного шпона и студийного света.</p>
+            <div class="case-meta">от 4 дней · Доступна 3D-сборка</div>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="kitchen">
           <div class="case-thumb"><img src="assets/work-03.jpg" alt="3D-визуализация светлой кухни-столовой" loading="lazy"></div>
           <div class="case-body">
             <span class="case-tag">3D-интерьер</span>
             <h3>Кухня-столовая для каталога</h3>
             <p>Собрали сцену по чертежам без вывоза мебели в фотостудию — клиент сразу запустил карточки в продажу.</p>
-            <div class="case-meta">Срок: 3 дня · Экономия на съёмке</div>
+            <div class="case-meta">от 3 дней · Доступна 3D-сборка</div>
           </div>
         </article>
 
         <article class="case-card is-ui reveal" data-cat="web">
           <div class="case-thumb">
             <div class="ui-bar"><i></i><i></i><i></i></div>
-            <img src="assets/leadforge_app.png" alt="Веб-сервис LeadForge ULTRA" loading="lazy">
+            <img src="assets/case_stroy.jpg" alt="Сайт для строительства домов и коттеджей" loading="lazy">
           </div>
           <div class="case-body">
-            <span class="case-tag">SaaS и автоматизация</span>
-            <h3>Платформа сбора и рассылки лидов</h3>
-            <p>Веб-интерфейс, парсинг компаний, AI-генерация персонализированных офферов и автоотправка через SMTP/CRM.</p>
-            <div class="case-meta">Команда веб-разработки · MVP 14 дней</div>
+            <span class="case-tag">Лендинг / Сайт</span>
+            <h3>Строительство домов и коттеджей</h3>
+            <p>Сайт с расчётом стоимости дома, фиксацией этапов в договоре и заявкой в мессенджер.</p>
+            <div class="case-meta">от 5 дней · Веб-разработка</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="3d">
+        <article class="case-card is-ui reveal" data-cat="web">
+          <div class="case-thumb">
+            <div class="ui-bar"><i></i><i></i><i></i></div>
+            <img src="assets/case_mebel.jpg" alt="Сайт для салона мебели на заказ" loading="lazy">
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Лендинг / Сайт</span>
+            <h3>Кухни и корпусная мебель на заказ</h3>
+            <p>Первый экран с 3D-проектом до замера, быстрым квизом и расчётом цены под размеры клиента.</p>
+            <div class="case-meta">от 5 дней · Веб-разработка</div>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="kitchen">
           <div class="case-thumb"><img src="assets/work-06.jpg" alt="3D-визуализация кухни-гостиной" loading="lazy"></div>
           <div class="case-body">
             <span class="case-tag">3D-интерьер</span>
             <h3>Кухня-гостиная для салона</h3>
             <p>Комплексная сцена для сайта и рекламы: показаны фактуры фасадов, освещение и планировка пространства.</p>
-            <div class="case-meta">Срок: 4 дня · 4 ракурса</div>
+            <div class="case-meta">от 4 дней · Доступна 3D-сборка</div>
           </div>
         </article>
 
         <article class="case-card is-ui reveal" data-cat="web">
           <div class="case-thumb">
             <div class="ui-bar"><i></i><i></i><i></i></div>
-            <img src="assets/demo_web.png" alt="Продающий лендинг для мебельной фабрики" loading="lazy">
+            <img src="assets/demo_web.png" alt="Продающий лендинг для мебельного производства" loading="lazy">
           </div>
           <div class="case-body">
             <span class="case-tag">Лендинг / Сайт</span>
-            <h3>Лендинг для производителя кухонь</h3>
-            <p>Чёткое УТП на первом экране, расчёт стоимости за 15 минут, блоки доверия и высокая конверсия с рекламы.</p>
-            <div class="case-meta">Команда веб-разработки · 5 дней</div>
+            <h3>Лендинг для мебельного производства</h3>
+            <p>Чёткое УТП на первом экране, расчёт стоимости, блоки доверия и адаптив под рекламный трафик.</p>
+            <div class="case-meta">от 5 дней · Веб-разработка</div>
           </div>
         </article>
 
-        <article class="case-card is-ui reveal" data-cat="web">
-          <div class="case-thumb">
-            <div class="ui-bar"><i></i><i></i><i></i></div>
-            <img src="assets/demo_automation.png" alt="Система AutoFlow автоматизации заявок" loading="lazy">
-          </div>
-          <div class="case-body">
-            <span class="case-tag">Автоматизация заявок</span>
-            <h3>Система AutoFlow: сайт → CRM → Telegram</h3>
-            <p>Заявка с формы мгновенно создаёт карточку в CRM, отправляет уведомление менеджеру и автоответ клиенту.</p>
-            <div class="case-meta">Команда веб-разработки · 4 дня</div>
-          </div>
-        </article>
-
-        <article class="case-card is-ui reveal" data-cat="web">
-          <div class="case-thumb">
-            <div class="ui-bar"><i></i><i></i><i></i></div>
-            <img src="assets/demo_saas.png" alt="Веб-сервис и личный кабинет клиента" loading="lazy">
-          </div>
-          <div class="case-body">
-            <span class="case-tag">Веб-сервис / Личный кабинет</span>
-            <h3>Клиентский портал и аналитика</h3>
-            <p>Интерфейс личного кабинета с ролями пользователей, трекингом задач и онлайн-оплатой под ключ.</p>
-            <div class="case-meta">Команда веб-разработки · Под ключ</div>
-          </div>
-        </article>
-
-        <article class="case-card reveal" data-cat="3d">
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="kitchen">
           <div class="case-thumb"><img src="assets/work-07.jpg" alt="3D-визуализация тёмной кухни" loading="lazy"></div>
           <div class="case-body">
             <span class="case-tag">3D-мебель</span>
             <h3>Тёмная кухня в стиле минимализм</h3>
             <p>Детализация камня, шпона и встроенной подсветки — покупатель видит материалы так, как вживую.</p>
-            <div class="case-meta">Срок: 3 дня · Под рекламу и сайт</div>
+            <div class="case-meta">от 3 дней · Доступна 3D-сборка</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="3d">
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="chair">
           <div class="case-thumb"><img src="assets/work-04.jpg" alt="3D-рендер мягкой мебели у окна" loading="lazy"></div>
           <div class="case-body">
             <span class="case-tag">3D-мебель</span>
-            <h3>Мягкая мебель в интерьерном свете</h3>
+            <h3>Мягкое кресло в интерьерном свете</h3>
             <p>Одна 3D-модель кресла с возможностью быстро менять цвет ткани для карточек на маркетплейсах.</p>
-            <div class="case-meta">Срок: 2 дня · Замена фотосессии</div>
+            <div class="case-meta">от 2 дней · Доступна 3D-сборка</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="3d">
+        <article class="case-card reveal" data-cat="3d" data-3d-assembly="plumbing">
           <div class="case-thumb"><img src="assets/plumbing_3d.jpg" alt="Серия 3D-визуализаций сантехники и ванной комнаты" loading="lazy"></div>
           <div class="case-body">
             <span class="case-tag">3D-каталог</span>
             <h3>Серия визуализаций сантехники</h3>
             <p>Единый стиль ракурсов и освещения для товарного каталога ванных комнат и мебели для санузлов.</p>
-            <div class="case-meta">Срок: 5 дней · Пакет под ключ</div>
+            <div class="case-meta">от 5 дней · Доступна 3D-сборка</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="concept">
+        <article class="case-card is-ui reveal" data-cat="custom">
+          <div class="case-thumb">
+            <div class="ui-bar"><i></i><i></i><i></i></div>
+            <img src="assets/leadforge_app.png" alt="Платформа сбора и рассылки лидов" loading="lazy">
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Индивидуальный проект</span>
+            <h3>Платформа сбора и рассылки лидов</h3>
+            <p>Веб-интерфейс, парсинг компаний, генерация персонализированных офферов и автоотправка через SMTP/CRM.</p>
+            <div class="case-meta">от 14 дней · Под ключ</div>
+          </div>
+        </article>
+
+        <article class="case-card is-ui reveal" data-cat="custom">
+          <div class="case-thumb">
+            <div class="ui-bar"><i></i><i></i><i></i></div>
+            <img src="assets/demo_automation.png" alt="Система автоматизации заявок" loading="lazy">
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Индивидуальный проект</span>
+            <h3>Автоматизация заявок: сайт → CRM → Telegram</h3>
+            <p>Заявка с формы мгновенно создаёт карточку в CRM, отправляет уведомление менеджеру и автоответ клиенту.</p>
+            <div class="case-meta">от 4 дней · Интеграция</div>
+          </div>
+        </article>
+
+        <article class="case-card is-ui reveal" data-cat="custom">
+          <div class="case-thumb">
+            <div class="ui-bar"><i></i><i></i><i></i></div>
+            <img src="assets/demo_saas.png" alt="Веб-сервис и личный кабинет клиента" loading="lazy">
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Индивидуальный проект</span>
+            <h3>Клиентский портал и аналитика</h3>
+            <p>Интерфейс личного кабинета с ролями пользователей, трекингом задач и онлайн-оплатой под ключ.</p>
+            <div class="case-meta">от 14 дней · Кастомная разработка</div>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="custom" data-3d-assembly="chair">
           <div class="case-thumb"><img src="assets/work-08.jpg" alt="Стилизованный 3D-персонаж" loading="lazy"></div>
           <div class="case-body">
-            <span class="case-tag">3D-персонаж</span>
+            <span class="case-tag">Индивидуальный 3D-проект</span>
             <h3>Стилизованный 3D-персонаж</h3>
             <p>Моделинг, текстуринг и постановка студийного света для бренда, игр и рекламных креативов.</p>
             <div class="case-meta">Full pipeline · High/Low-poly</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="concept">
+        <article class="case-card reveal" data-cat="custom" data-3d-assembly="kitchen">
           <div class="case-thumb"><img src="assets/work-01.jpg" alt="Атмосферная 3D-сцена" loading="lazy"></div>
           <div class="case-body">
-            <span class="case-tag">3D-окружение</span>
+            <span class="case-tag">Индивидуальная 3D-сцена</span>
             <h3>Промышленная 3D-сцена</h3>
             <p>Сложное окружение, объёмный туман и проработка материалов для визуальных проектов и презентаций.</p>
             <div class="case-meta">Environment Art · Освещение</div>
           </div>
         </article>
 
-        <article class="case-card reveal" data-cat="concept">
+        <article class="case-card reveal" data-cat="custom" data-3d-assembly="kitchen">
           <div class="case-thumb"><img src="assets/work-05.jpg" alt="Вечерняя уличная 3D-сцена" loading="lazy"></div>
           <div class="case-body">
-            <span class="case-tag">3D-окружение</span>
+            <span class="case-tag">Индивидуальная 3D-сцена</span>
             <h3>Вечерняя городская сцена</h3>
             <p>Работа с неоновым светом, кирпичной кладкой и атмосферой ночного города.</p>
             <div class="case-meta">Environment Art · Свет</div>
@@ -220,11 +256,44 @@
       <h3 id="cm-title"></h3>
       <p id="cm-desc"></p>
       <div class="case-modal-meta" id="cm-meta"></div>
-      <a class="btn" id="cm-cta" href="index.html#contact" style="margin-top:auto">Хочу похожий проект</a>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto">
+        <button class="btn ghost" id="cm-open-3d" type="button" style="display:none">Рассмотреть детали и свет</button>
+        <a class="btn" id="cm-cta" href="index.html#contact">Хочу похожий проект</a>
+      </div>
     </div>
   </div>
 </div>
 
-<script src="assets/app.js?v=19"></script>
+<div class="assembly-fs" id="assembly-fullscreen" aria-hidden="true">
+  <div class="assembly-fs-top">
+    <div class="assembly-fs-title">
+      <span>Студийный просмотр · Детали и оттенки</span>
+      <strong id="afs-title">Проект</strong>
+    </div>
+    <button class="assembly-fs-close" id="afs-close" type="button" aria-label="Закрыть">×</button>
+  </div>
+  <div class="assembly-fs-stage">
+    <div class="studio-viewer" id="studio-viewer" data-mood="original">
+      <span class="studio-hint">Наведите курсор для увеличения (колёсико меняет масштаб) · Переключайте свет ниже</span>
+      <img id="studio-img" src="" alt="">
+      <div class="studio-loupe" id="studio-loupe"></div>
+    </div>
+  </div>
+  <div class="assembly-fs-bar">
+    <button class="afs-step active" type="button" data-mood="original"><span class="swatch-dot" style="background:#cbd5e1"></span>Оригинал</button>
+    <button class="afs-step" type="button" data-mood="warm"><span class="swatch-dot" style="background:#d4a373"></span>Тёплый вечерний</button>
+    <button class="afs-step" type="button" data-mood="scandi"><span class="swatch-dot" style="background:#e2e8f0"></span>Сканди дневной</button>
+    <button class="afs-step" type="button" data-mood="loft"><span class="swatch-dot" style="background:#334155"></span>Контрастный лофт</button>
+    <div class="afs-zoom-wrap">
+      <span>Увеличение</span>
+      <input id="afs-zoom-range" type="range" min="1.5" max="4.0" step="0.1" value="2.4">
+      <strong id="afs-zoom-val">2.4×</strong>
+    </div>
+    <button class="afs-step active afs-loupe-toggle" type="button" id="afs-loupe-toggle">Лупа: ВКЛ</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/app.js?v=26"></script>
 </body>
 </html>
