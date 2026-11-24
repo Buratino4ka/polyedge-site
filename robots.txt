@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /spasibo.html
 
-Sitemap: https://polyedge-studio.netlify.app/sitemap.xml
+Sitemap: https://polyedgestudio.ru/sitemap.xml
