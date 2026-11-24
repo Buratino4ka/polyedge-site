@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolyEdge-Studio — 3D-визуализация, сайты и автоматизация для бизнеса</title>
+<meta name="description" content="Фотореалистичные 3D-рендеры мебели и интерьера, продающие сайты и автоматизация заявок. Команда профессионалов, договор и чек.">
+<link rel="stylesheet" href="assets/style.css?v=19">
+</head>
+<body>
+<div class="scroll-progress" id="scroll-progress"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="logo-mark">PE</span>PolyEdge<span>Studio</span></a>
+    <nav class="menu">
+      <a href="index.html" class="active">Главная</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="services.html">Услуги и цены</a>
+      <a href="about.html">О студии</a>
+    </nav>
+    <div class="nav-status"><span class="dot"></span>Берём 2 проекта на неделю</div>
+    <button class="theme-btn" id="theme-toggle" type="button" aria-label="Сменить тему"></button>
+    <a class="btn sm" href="#contact">Обсудить задачу</a>
+    <button class="burger" type="button" aria-label="Меню">☰</button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Главная</a>
+    <a href="portfolio.html">Портфолио</a>
+    <a href="services.html">Услуги и цены</a>
+    <a href="about.html">О студии</a>
+    <a href="#contact">Обсудить задачу</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-aura" id="hero-aura" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">3D · Веб-разработка · Автоматизация</span>
+          <h1>Визуал и digital-системы, <span class="grad">которые приводят клиентов</span></h1>
+          <p class="sub">Команда профильных 3D-художников и веб-разработчиков. Делаем фотореалистичные рендеры для каталогов, быстрые сайты с онлайн-записью и автоворонки по договору и с чеком.</p>
+          <div class="cta">
+            <a class="btn" href="#estimator">Рассчитать смету</a>
+            <a class="btn ghost" href="portfolio.html">Смотреть портфолио →</a>
+          </div>
+          <div class="trust-row">
+            <div class="trust-item"><b>2–3 дня</b><span>на первый рендер или макет</span></div>
+            <div class="trust-item"><b>Договор + чек</b><span>НПД, акт, поэтапная оплата</span></div>
+            <div class="trust-item"><b>2 команды</b><span>профи в 3D и веб-разработке</span></div>
+          </div>
+        </div>
+        <div class="hero-3d-stage" id="hero-sculpture-stage">
+          <div class="hero-sculpture-glow" aria-hidden="true"></div>
+          <canvas id="hero-three-canvas" style="width:100%;height:100%;display:block;position:relative;z-index:2"></canvas>
+          <img class="hero-sculpture" id="hero-sculpture" src="assets/hero-sculpture.jpg" alt="3D-скульптура PolyEdge-Studio" style="display:none">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>•</span> Blender &amp; Corona Render <span>•</span> Unreal Engine 5 <span>•</span> React &amp; Next.js <span>•</span> Python &amp; FastAPI <span>•</span> Telegram Bot API <span>•</span> amoCRM &amp; Bitrix24 <span>•</span> YouTube CTR Design
+      <span>•</span> Blender &amp; Corona Render <span>•</span> Unreal Engine 5 <span>•</span> React &amp; Next.js <span>•</span> Python &amp; FastAPI <span>•</span> Telegram Bot API <span>•</span> amoCRM &amp; Bitrix24 <span>•</span> YouTube CTR Design
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Направления</span>
+        <h2>Что закрываем под ключ</h2>
+        <p class="sub">Не нужно искать отдельно 3D-студию, веб-разработчиков и интегратора. Подробнее о каждом формате — в разделе <a href="services.html" style="color:#8bb0ff;text-decoration:underline">Услуги и цены</a>.</p>
+      </div>
+      <div class="bento">
+        <div class="bento-card wide">
+          <span class="bento-num">01 / 3D-ПРОДАКШН</span>
+          <h3>3D-визуализация мебели и каталоги</h3>
+          <p>Собираем сцены по фото или чертежам: показываем одну модель сразу в 5–10 цветах и интерьерах без аренды студии и логистики образцов.</p>
+          <div class="price-tag">от 6 000 ₽ за изделие · каталоги от 25 000 ₽</div>
+        </div>
+        <div class="bento-card wide">
+          <span class="bento-num">02 / WEB & SAAS</span>
+          <h3>Продающие сайты, лендинги и сервисы</h3>
+          <p>Профессиональная команда веб-разработчиков делает быстрые сайты с квизами, онлайн-записью и личными кабинетами, готовые к приёму рекламы.</p>
+          <div class="price-tag">лендинги от 45 000 ₽ · SaaS от 150 000 ₽</div>
+        </div>
+        <div class="bento-card">
+          <span class="bento-num">03 / АВТОМАТИЗАЦИЯ</span>
+          <h3>Заявки и CRM-воронки</h3>
+          <p>Связываем сайт, Telegram и CRM, чтобы лиды фиксировались за секунду без потерь.</p>
+          <div class="price-tag">от 40 000 ₽</div>
+        </div>
+        <div class="bento-card">
+          <span class="bento-num">04 / YOUTUBE</span>
+          <h3>Превью с высоким CTR</h3>
+          <p>Кликабельные обложки, которые читаются с телефона и выделяются в рекомендациях.</p>
+          <div class="price-tag">от 6 000 ₽ за 3 шт.</div>
+        </div>
+        <div class="bento-card">
+          <span class="bento-num">05 / ПАРСИНГ</span>
+          <h3>Мониторинг цен и лидов</h3>
+          <p>Автоматический сбор каталогов конкурентов, остатков и контактов в удобную таблицу.</p>
+          <div class="price-tag">по задаче</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimator">
+    <div class="wrap">
+      <div class="calc-box">
+        <div>
+          <span class="eyebrow">Калькулятор</span>
+          <h2>Быстрый расчёт стоимости</h2>
+          <p class="sub" style="margin:10px 0 24px">Выберите направление и масштаб — сразу увидите ориентир по бюджету и срокам.</p>
+
+          <div class="calc-group">
+            <span class="calc-label">1. Направление</span>
+            <div class="chip-row">
+              <button class="chip active" type="button" data-calc-service="3d">3D-визуализация</button>
+              <button class="chip" type="button" data-calc-service="web">Лендинг / Сайт</button>
+              <button class="chip" type="button" data-calc-service="auto">Автоматизация / CRM</button>
+              <button class="chip" type="button" data-calc-service="yt">Превью YouTube</button>
+            </div>
+          </div>
+
+          <div class="calc-group" style="margin-bottom:0">
+            <span class="calc-label">2. Масштаб задачи</span>
+            <div class="chip-row">
+              <button class="chip active" type="button" data-calc-scale="pilot">Пилот / Тест</button>
+              <button class="chip" type="button" data-calc-scale="standard">Под ключ</button>
+              <button class="chip" type="button" data-calc-scale="pro">Комплекс / Серия</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <span class="eyebrow" style="margin-bottom:4px">Ориентир</span>
+          <div class="calc-price" id="calc-price">от 6 000 ₽</div>
+          <div class="calc-term" id="calc-term">2–3 дня · 1 модель / 3 ракурса</div>
+          <p class="calc-note">Сумму пилотного этапа засчитываем в основной заказ, если идём в работу дальше.</p>
+          <a class="btn" id="calc-apply" href="#contact" style="width:100%">Зафиксировать расчёт и обсудить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;max-width:100%;flex-wrap:wrap">
+        <div>
+          <span class="eyebrow">Избранные кейсы</span>
+          <h2>Примеры наших работ</h2>
+        </div>
+        <a class="btn ghost sm" href="portfolio.html">Открыть все кейсы (12) →</a>
+      </div>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <div class="case-thumb"><img src="assets/work-03.jpg" alt="3D-визуализация кухни-столовой" loading="lazy"></div>
+          <div class="case-body">
+            <span class="case-tag">3D-интерьер</span>
+            <h3>Кухня-столовая для каталога</h3>
+            <p>Собрали сцену по чертежам без вывоза мебели в студию — клиент сразу запустил карточки в продажу.</p>
+            <div class="case-meta">3 дня · Экономия на съёмке</div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-thumb"><img src="assets/demo_web.png" alt="Лендинг для мебельного производства" loading="lazy"></div>
+          <div class="case-body">
+            <span class="case-tag">Лендинг / Сайт</span>
+            <h3>Сайт для фабрики кухонь</h3>
+            <p>Чёткий оффер на первом экране, форма расчёта стоимости за 15 минут и адаптив под рекламу.</p>
+            <div class="case-meta">5 дней · Команда веб-разработки</div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-thumb"><img src="assets/leadforge_app.png" alt="Веб-сервис LeadForge ULTRA" loading="lazy"></div>
+          <div class="case-body">
+            <span class="case-tag">Веб-сервис и автоматизация</span>
+            <h3>Платформа сбора и рассылки лидов</h3>
+            <p>Веб-интерфейс, парсинг компаний, генерация офферов и автоотправка заявок через SMTP/CRM.</p>
+            <div class="case-meta">MVP за 14 дней · Под ключ</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Отзывы</span>
+        <h2>Что отмечают заказчики</h2>
+        <p class="sub">По запросу в Telegram покажем скриншоты переписок и контакты клиентов.</p>
+      </div>
+      <div class="grid-3">
+        <div class="panel">
+          <div style="color:var(--gold);letter-spacing:2px;margin-bottom:12px">★★★★★</div>
+          <p class="sub" style="color:var(--text);margin-bottom:18px">«Сделали 3D-каталог за неделю. Покупатели перестали просить "показать в другом цвете" в личке — сразу выбирают вариант на карточке.»</p>
+          <b style="display:block;font-size:14.5px">Алексей М.</b>
+          <span style="font-size:13px;color:var(--muted)">производитель мебели, Екатеринбург</span>
+        </div>
+        <div class="panel">
+          <div style="color:var(--gold);letter-spacing:2px;margin-bottom:12px">★★★★★</div>
+          <p class="sub" style="color:var(--text);margin-bottom:18px">«Рендер кухни получился настолько живым, что сначала приняли за фото из студии. При этом не пришлось везти образец.»</p>
+          <b style="display:block;font-size:14.5px">Елена К.</b>
+          <span style="font-size:13px;color:var(--muted)">салон кухонь на заказ, Ростов-на-Дону</span>
+        </div>
+        <div class="panel">
+          <div style="color:var(--gold);letter-spacing:2px;margin-bottom:12px">★★★★★</div>
+          <p class="sub" style="color:var(--text);margin-bottom:18px">«Быстро, по договору, с чеком. На созвоне сразу показали, как упростить форму заявки и привязать уведомления в Telegram.»</p>
+          <b style="display:block;font-size:14.5px">Дмитрий С.</b>
+          <span style="font-size:13px;color:var(--muted)">строительная компания, Краснодар</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="grid-2" style="align-items:start">
+        <div>
+          <span class="eyebrow">Контакты</span>
+          <h2 style="font-size:clamp(28px,3.5vw,38px);margin-bottom:14px">Обсудим ваш проект</h2>
+          <p class="sub" style="margin-bottom:24px">Опишите задачу — за 2 часа пришлём релевантные примеры, сроки и смету под ваш бюджет.</p>
+          <div class="panel" style="display:grid;gap:10px">
+            <b style="font-size:20px">+7 993 455-65-67</b>
+            <a href="mailto:contact.polyedge@gmail.com" style="color:#8bb0ff">contact.polyedge@gmail.com</a>
+            <a href="https://t.me/denis_polyedge" target="_blank" rel="noopener" style="color:#8bb0ff">Telegram: @denis_polyedge</a>
+            <span style="font-size:13px;color:var(--muted);margin-top:8px">Самозанятый (НПД) · Астахов Денис Юрьевич · ИНН 614907689520</span>
+          </div>
+        </div>
+        <form id="lead-form" method="POST" action="https://formsubmit.co/contact.polyedge@gmail.com">
+          <input type="hidden" name="_subject" value="Заявка с сайта PolyEdge-Studio">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-tags">
+            <button class="form-tag" type="button">3D-визуализация</button>
+            <button class="form-tag" type="button">Лендинг / Сайт</button>
+            <button class="form-tag" type="button">Автоматизация / CRM</button>
+            <button class="form-tag" type="button">SaaS / Веб-сервис</button>
+          </div>
+          <label>Как к вам обращаться<input name="name" required placeholder="Имя"></label>
+          <label>Telegram или e-mail<input name="contact" required placeholder="@username или mail@example.ru"></label>
+          <label>Задача<textarea name="task" rows="4" required placeholder="Например: нужен лендинг для студии / 5 визуализаций кухонь / автоматизация заявок"></textarea></label>
+          <label class="check"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных</span></label>
+          <button class="btn" type="submit" style="width:100%;margin-top:6px">Отправить заявку</button>
+          <p id="form-status" class="status" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 PolyEdge-Studio · Астахов Денис Юрьевич · ИНН 614907689520</div>
+    <div><a href="privacy.html">Политика конфиденциальности</a></div>
+  </div>
+</footer>
+
+<div class="case-modal" id="case-modal" aria-hidden="true">
+  <div class="case-modal-box">
+    <button class="case-modal-close" type="button" aria-label="Закрыть">×</button>
+    <div class="case-modal-img"><img id="cm-img" src="" alt=""></div>
+    <div class="case-modal-info">
+      <span class="case-tag" id="cm-tag"></span>
+      <h3 id="cm-title"></h3>
+      <p id="cm-desc"></p>
+      <div class="case-modal-meta" id="cm-meta"></div>
+      <a class="btn" id="cm-cta" href="index.html#contact" style="margin-top:auto">Хочу похожий проект</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/app.js?v=19"></script>
+</body>
+</html>
